@@ -1,0 +1,32 @@
+<script type="module">
+  import UndoerElement from './element.js';
+
+  customElements.define('undoer-element', UndoerElement);
+
+  let count = 0;
+
+  undoer.addEventListener('state', (ev) => {
+    recent.innerHTML = `Got <em>${ev.detail}</em>`;
+  });
+
+  push.addEventListener('click', (ev) => {
+    undoer.state = `v=${++count}`;
+    recent.innerHTML = `Pushed <strong>${undoer.state}</strong>`;
+  });
+</script>
+
+<h1>Undoer test page</h1>
+
+<ul>
+  <li>Press "Push" to generate a new programatic undo event.</li>
+  <li>Use your browser's undo behavior (Ctrl/Cmd-Z) to undo or redo (Ctrl/Cmd-Shift-Z).</li>
+  <li>Type into the text input to intersperse 'traditional' events with programatic events.</li>
+</ul>
+
+<div>
+  <input type="text" placeholder="Type here to intersperse undo events" size="50" />
+</div>
+
+<undoer-element state="init" id="undoer"></undoer-element>
+<button id="push">Push</button>
+<div id="recent"></div>
