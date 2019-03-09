@@ -14,13 +14,13 @@ Add the dependency to your JS and register it as a CE:
 
 ```js
 import UndoerElement from './node_modules/undoer/element.js';
-customElements.define('undoer-element', AdvancedInputElement);
+customElements.define('undoer-element', UndoerElement);
 ```
 
 Then add the element to your page, optionally adding `state` attribute to set its zero initial state (otherwise it will be `null`):
 
 ```html
-<undoer-element state="initial state"></advanced-input>
+<undoer-element state="initial state"></undoer-element>
 ```
 
 Finally, use the element's JavaScript API:
