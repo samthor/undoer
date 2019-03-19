@@ -2,6 +2,7 @@
   "name": "undoer",
   "version": "0.1.0",
   "description": "Native undo/redo behavior for web",
+  "homepage": "https://github.com/samthor/undoer",
   "main": "undoer.js",
   "repository": "git@github.com:samthor/undoer.git",
   "author": "Sam Thorogood <sam.thorogood@gmail.com>",
