@@ -34,7 +34,7 @@ export class Undoer {
       }
 
       // clear selection, otherwise user copy gesture will copy value
-      // nb. this _probably_ won't work in SD
+      // nb. this _probably_ won't work inside Shadow DOM
       // nb. this is mitigated by the fact that we set visibility: 'hidden'
       const s = window.getSelection();
       if (s.containsNode(this._ctrl, true)) {
@@ -77,7 +77,6 @@ export class Undoer {
     this._stack.splice(nextID, this._stack.length - nextID, data);
 
     const previousFocus = document.activeElement;
-    console.info('got previousFocus', previousFocus);
     try {
       this._duringUpdate = true;
       this._ctrl.style.visibility = null;
